@@ -30,7 +30,7 @@ const useStore = create<RFState>((set, get) => ({
       type: 'mindmap',
       data: { label: 'Web Development' },
       position: { x: 0, y: 0 },
-    },
+          },
     {
       id: '1',
       type: 'mindmap',

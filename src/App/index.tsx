@@ -9,7 +9,7 @@ import ReactFlow, {
   useStoreApi,
   Controls,
   Panel,
-} from 'reactflow';
+  } from 'reactflow';
 import shallow from 'zustand/shallow';
 
 import useStore, { RFState } from './store';
@@ -123,7 +123,7 @@ function Flow() {
     >
       <Controls showInteractive={false} />
       <Panel position="top-left" className="header">
-        React Flow Mind Map
+         IA Report Mind Map
       </Panel>
     </ReactFlow>
   );

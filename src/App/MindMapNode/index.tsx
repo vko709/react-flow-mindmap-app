@@ -11,7 +11,7 @@ export type NodeData = {
 
 function MindMapNode({ id, data }: NodeProps<NodeData>) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const updateNodeLabel = useStore((state) => state.updateNodeLabel);
+  const updateNodeLabel:any = useStore((state) => state.updateNodeLabel);
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,7 +23,21 @@ function MindMapNode({ id, data }: NodeProps<NodeData>) {
     if (inputRef.current) {
       inputRef.current.style.width = `${data.label.length * 8}px`;
     }
-  }, [data.label.length]);
+    if(id === 'root'){
+      const targetElement = inputRef.current?.parentElement?.nextSibling?.nextSibling;
+      if (targetElement && targetElement instanceof HTMLElement) {
+        targetElement.style.color = 'red'; // Example: Change text color to red
+        targetElement.style.backgroundColor = 'green'; // Example: Change background color to yellow  
+      }
+    }
+    else if(id.length === 1){
+      const targetElement = inputRef.current?.parentElement?.nextSibling?.nextSibling;
+      if (targetElement && targetElement instanceof HTMLElement) {
+        targetElement.style.color = 'red'; // Example: Change text color to red
+        targetElement.style.backgroundColor = 'pink'; // Example: Change background color to yellow  
+      }
+    }
+      }, [data.label.length]);
 
   return (
     <>
